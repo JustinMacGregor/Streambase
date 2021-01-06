@@ -9,8 +9,9 @@ const MovieList = (props) => {
                 <div className="col s12">
                     {
                         props.movies.map((movie, i) => {
+                            console.log(movie)
                             return (
-                                <Movie key={i} image={movie.poster_path}/>
+                                <Movie key={i} id={movie.id} image={movie.poster_path}/>
                             )
                         })
                     }

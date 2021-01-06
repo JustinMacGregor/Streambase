@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Nav from './Nav'
 import MovieList from './MovieList';
+import '../App.css'
 
 class App extends Component {
   constructor() {

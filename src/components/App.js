@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import Nav from './Nav'
 import MovieList from './MovieList';
 import '../App.css'
@@ -18,7 +18,6 @@ class App extends Component {
 
     this.apiKey = "c4c81ee0662a6bb5b3b0495520d6c51a"
   }
-
 
   handleSubmit = (e) => {
     e.preventDefault();

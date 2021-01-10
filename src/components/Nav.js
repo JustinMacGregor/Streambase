@@ -1,5 +1,6 @@
 import React from 'react';
 import AST_PropAccess from 'terser';
+import firebaseApp from '../firebase.js'
 
 const Nav = (props) => {
     return (

@@ -11,7 +11,7 @@ const MovieList = (props) => {
                         props.movies.map((movie, i) => {
                             console.log(movie)
                             return (
-                                <Movie key={i} movie={movie} id={movie.id} image={movie.poster_path}/>
+                                <Movie key={i} movie={movie} movieId={movie.id} image={movie.poster_path} viewMovieInfo={props.viewMovieInfo}/>
                             )
                         })
                     }

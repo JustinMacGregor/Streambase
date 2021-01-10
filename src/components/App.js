@@ -3,6 +3,7 @@ import Nav from './Nav'
 import MovieList from './MovieList';
 import '../App.css'
 import Pages from './Pages'
+import MovieInfo from './MovieInfo'
 
 class App extends Component {
   constructor() {
@@ -11,7 +12,8 @@ class App extends Component {
       movies: [],
       searchTerm: '',
       resultsAmt: 0,
-      curPage: 1
+      curPage: 1,
+      curMovie: null
     }
 
     this.apiKey = "c4c81ee0662a6bb5b3b0495520d6c51a"
@@ -43,14 +45,24 @@ class App extends Component {
     })
   }
 
+  viewMovieInfo = (id) => {
+    const filteredMovie = this.state.movies.filter(movie => movie.id == id)
+    const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null
+    this.setState({ curMovie: newCurrentMovie})
+  }
+
+  closeMovieInfo = () => {
+    this.setState({curMovie:null})
+  }
 
   render() {
     const pagesAmt = Math.floor(this.state.resultsAmt / 20);
     return (
       <div className="App">
         <Nav handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-        <MovieList movies={this.state.movies}/>
-        { this.state.resultsAmt > 20 ? <Pages pages={pagesAmt} nextPage={this.nextPage} curPage={this.state.curPage}/> : ''}
+        {this.state.curMovie == null ? <div handleSubmit={this.handleSubmit} handleChange={this.handleChange}><MovieList movies={this.state.movies} viewMovieInfo={this.viewMovieInfo}/></div> : <MovieInfo curMovie={this.state.curMovie} closeMovieInfo={this.closeMovieInfo}/>}
+        { this.state.resultsAmt > 20 && this.state.curMovie == null ? <Pages pages={pagesAmt} nextPage={this.nextPage} curPage={this.state.curPage}/> : ''}
+        {/* try to hide search bar when looking at movie details */}
       </div>
     )
   };

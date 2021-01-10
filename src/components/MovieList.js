@@ -9,7 +9,6 @@ const MovieList = (props) => {
                 <div className="col s12">
                     {
                         props.movies.map((movie, i) => {
-                            console.log(movie)
                             return (
                                 <Movie key={i} movie={movie} movieId={movie.id} image={movie.poster_path} viewMovieInfo={props.viewMovieInfo}/>
                             )

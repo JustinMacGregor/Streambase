@@ -1,24 +1,6 @@
 import React from 'react'
 
 const Movie = (props) => {
-
-    const api_key = "c4c81ee0662a6bb5b3b0495520d6c51a"
-    
-    // let streamChoice = []
-    // async function returnDetails() {
-    //     streamChoice = []
-    //     await fetch(`https://api.themoviedb.org/3/movie/${props.movieId}/watch/providers?api_key=${api_key}`)
-    //     .then(data => data.json())
-    //     .then(data => {
-    //         try {
-    //             if (data.results.CA.hasOwnProperty("flatrate"))
-    //             data.results.CA.flatrate.forEach(element => { streamChoice.push(element.provider_name)});
-    //             console.log(streamChoice)
-    //             alert(streamChoice)
-    //         } catch(e) {}
-    //     })
-    // }
-
     return (
         <div className="col s10 m3 13">
             <div className="card">

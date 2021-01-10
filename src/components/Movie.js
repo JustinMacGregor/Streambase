@@ -10,13 +10,13 @@ const Movie = (props) => {
         await fetch(`https://api.themoviedb.org/3/movie/${props.id}/watch/providers?api_key=${api_key}`)
         .then(data => data.json())
         .then(data => {
-            if (data.results.CA.hasOwnProperty("flatrate"))
-                data.results.CA.flatrate.forEach(element => {
-                    streamChoice.push(element.provider_name)
-                });
+            try {
+                if (data.results.CA.hasOwnProperty("flatrate"))
+                data.results.CA.flatrate.forEach(element => { streamChoice.push(element.provider_name)});
+                console.log(streamChoice)
+                alert(streamChoice)
+            } catch(e) {}
         })
-        console.log(streamChoice)
-        alert(streamChoice)
     }
 
     return (

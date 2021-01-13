@@ -31,9 +31,32 @@ export function AuthProvider({children}) {
         });
     }
 
+    function logIn(email, password) {
+        auth.signInWithEmailAndPassword(email, password)
+        .then((user) => {
+            // Signed in 
+            // ...
+            alert("The User has Log In")
+            console.log(user)
+        })
+        .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode)
+            console.log(errorMessage)
+        });
+    }
+
+    function logOut() {
+        auth.signOut()
+        alert("Log Out successfull")
+    }
+
     const value = {
         currentUserID,
-        signUp
+        signUp,
+        logIn,
+        logOut
     }
     return (
         <AuthContext.Provider value={value}>

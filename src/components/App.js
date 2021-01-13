@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Nav from './Nav'
 import MovieList from './MovieList';
 import '../App.css'
 import Pages from './Pages'
 import MovieInfo from './MovieInfo'
 import SignUp from './SignUp';
+import LogIn from './LogIn'
+import {useAuth} from '../contexts/AuthContext'
+
 import {AuthProvider} from '../contexts/AuthContext'
 class App extends Component {
   constructor() {
@@ -60,6 +63,7 @@ class App extends Component {
     return (
       <AuthProvider className="App">
         <SignUp />
+        <LogIn />
         {/* <Nav handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
         {this.state.curMovie == null ? <div handleSubmit={this.handleSubmit} handleChange={this.handleChange}><MovieList movies={this.state.movies} viewMovieInfo={this.viewMovieInfo}/></div> : <MovieInfo curMovie={this.state.curMovie} closeMovieInfo={this.closeMovieInfo}/>}
         { this.state.resultsAmt > 20 && this.state.curMovie == null ? <Pages pages={pagesAmt} nextPage={this.nextPage} curPage={this.state.curPage}/> : ''} */}

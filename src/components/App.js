@@ -4,7 +4,8 @@ import MovieList from './MovieList';
 import '../App.css'
 import Pages from './Pages'
 import MovieInfo from './MovieInfo'
-
+import SignUp from './SignUp';
+import {AuthProvider} from '../contexts/AuthContext'
 class App extends Component {
   constructor() {
     super()
@@ -57,12 +58,13 @@ class App extends Component {
   render() {
     const pagesAmt = Math.floor(this.state.resultsAmt / 20);
     return (
-      <div className="App">
-        <Nav handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+      <AuthProvider className="App">
+        <SignUp />
+        {/* <Nav handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
         {this.state.curMovie == null ? <div handleSubmit={this.handleSubmit} handleChange={this.handleChange}><MovieList movies={this.state.movies} viewMovieInfo={this.viewMovieInfo}/></div> : <MovieInfo curMovie={this.state.curMovie} closeMovieInfo={this.closeMovieInfo}/>}
-        { this.state.resultsAmt > 20 && this.state.curMovie == null ? <Pages pages={pagesAmt} nextPage={this.nextPage} curPage={this.state.curPage}/> : ''}
+        { this.state.resultsAmt > 20 && this.state.curMovie == null ? <Pages pages={pagesAmt} nextPage={this.nextPage} curPage={this.state.curPage}/> : ''} */}
         {/* try to hide search bar when looking at movie details */}
-      </div>
+      </AuthProvider>
     )
   };
 }
